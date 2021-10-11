@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import {
   Box,
   Grid,
+  InputBase,
   makeStyles,
-  TextField,
+  Tooltip,
   Typography,
 } from "@material-ui/core";
 import FreightSendInput from "./buttons";
-import ContainerCheckbox from "./containerCheckBox";
+import Toggler from "./toggler";
+import { ReactComponent as LocationIcon } from "../assets/icons/Location.svg";
+import { ReactComponent as InfoIcon } from "../assets/icons/Info.svg";
 
 const useStyles = makeStyles(() => ({
   formContainer: {
@@ -70,15 +73,72 @@ const useStyles = makeStyles(() => ({
     },
   },
   checkBox: {
-    backgroundColor: "#fff",
     border: "1px solid green",
     cursor: "pointer",
     color: "#0746a6",
-
     borderRadius: "4px",
     alignContent: "center",
   },
+
+  exportContainer: {
+    marginLeft: "2rem",
+    "& span": {
+      fontSize: "14px",
+      color: "#81868c",
+    },
+  },
+
+  forwarding: {
+    marginBottom: "5px",
+  },
+
+  mode: {
+    height: "48px",
+    width: "72px",
+    backgroundColor: "#0746a6",
+    marginRight: "30px",
+  },
+
+  inputBase: {
+    height: "48px",
+    width: "100%",
+    backgroundColor: "#f3f3f3",
+    marginRight: "1rem",
+    border: 0,
+  },
+
+  inputBaseTwo: {
+    marginRight: "30px",
+    height: "48px",
+    width: "100%",
+    backgroundColor: "#f3f3f3",
+    border: 0,
+    paddingLeft: "10px",
+  },
+
+  iconContainer: {
+    marginTop: "2rem",
+    marginBottom: ".5rem",
+  },
+  iconContainerTwo: { display: "flex", flexDirection: "row" },
+  inputBaseIcon: {
+    paddingLeft: "0.5rem",
+  },
+  questionContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyItems: "center",
+    alignItems: "center",
+    marginBottom: "30px",
+  },
+  question: {
+    marginLeft: "1.5rem",
+    color: "#33333",
+    fontSize: "1rem",
+    fontWeight: 500,
+  },
 }));
+
 export default function Form() {
   const classes = useStyles();
 
@@ -145,6 +205,99 @@ export default function Form() {
         </Grid>
       </Box>
 
+      {/* Start of the export or import  */}
+      <Box
+        className={classes.servicesContainer}
+        display="flex"
+        flexDirection="column"
+      >
+        <div className={classes.iconContainer}>
+          <Tooltip placement="right-end" title="Trade Direction" arrow>
+            <InfoIcon />
+          </Tooltip>
+        </div>
+        <Box display="flex" flexDirection="row">
+          <div className={classes.mode}></div>
+
+          <Box
+            display="flex"
+            flexDirection="row"
+            style={{ width: "100%", marginBottom: "45px" }}
+          >
+            <InputBase
+              startAdornment={<LocationIcon style={{ paddingLeft: ".5rem" }} />}
+              placeholder="From City or Port"
+              className={classes.inputBase}
+            />
+
+            <InputBase
+              startAdornment={<LocationIcon style={{ paddingLeft: ".5rem" }} />}
+              placeholder="To City or Port"
+              className={classes.inputBase}
+            />
+          </Box>
+        </Box>
+        <div className={classes.iconContainerTwo}>
+          <Tooltip placement="right-end" title="Trade Direction" arrow>
+            <InfoIcon />
+          </Tooltip>
+
+          <Typography style={{ marginLeft: ".5rem" }}>What Is This?</Typography>
+        </div>
+        <Box
+          display="flex"
+          flexDirection="row"
+          style={{ width: "100%", marginBottom: "45px" }}
+        >
+          <InputBase
+            placeholder="Enter HS Code"
+            className={classes.inputBaseTwo}
+            type="number"
+          />
+
+          <InputBase
+            endAdornment={
+              <Typography style={{ color: "#81868c" }}>
+                <b>USD</b>
+              </Typography>
+            }
+            placeholder="Total Cargo Value"
+            type="number"
+            className={classes.inputBaseTwo}
+          />
+
+          <InputBase
+            placeholder="Cargo Ready Date"
+            type="date"
+            className={classes.inputBaseTwo}
+          />
+        </Box>
+        <Box display="flex" flexDirection="column">
+          <Box className={classes.questionContainer}>
+            <Toggler label="aria-label" className="checkbox" />
+            <Typography className={classes.question}>
+              Do You Have A Form M?
+            </Typography>
+          </Box>
+        </Box>
+        <Box display="flex" flexDirection="column">
+          <Box className={classes.questionContainer}>
+            <Toggler label="aria-label" className="checkbox" />
+            <Typography className={classes.question}>
+              My Shipment Requires NAFDAC Clearance.
+            </Typography>
+          </Box>
+        </Box>
+        <Box display="flex" flexDirection="column">
+          <Box className={classes.questionContainer}>
+            <Toggler label="aria-label" className="checkbox" />
+            <Typography className={classes.question}>
+              Transport / Delivery
+            </Typography>
+          </Box>
+        </Box>
+      </Box>
+
       {/*Start of container particulars */}
       <Box className={classes.servicesContainer}>
         <Typography className={classes.headerText}></Typography>
@@ -155,14 +308,27 @@ export default function Form() {
           className={classes.serviceContainer}
         >
           <Box display="flex" flexDirection="row">
-            <ContainerCheckbox
-              className={classes.checkBox}
-              label="Full Container (FCL)"
-            />
-            <ContainerCheckbox
-              className={classes.checkBox}
-              label="Less than Container (LCL)"
-            />
+            <Toggler label="Full Container (FCL)" />
+          </Box>
+        </Box>
+      </Box>
+
+      {/* Additional services  */}
+      <Box>
+        <Box className={classes.servicesContainer}>
+          <Typography className={classes.headerText}>
+            Additional Services
+          </Typography>
+
+          <Box display="flex" flexDirection="row">
+            <Toggler label="aria-label" className="checkbox" />
+
+            <div className={classes.exportContainer}>
+              <Typography className={classes.forwarding}>
+                Export Forwarding
+              </Typography>
+              <span>We handle customs clearance and documentation.</span>
+            </div>
           </Box>
         </Box>
       </Box>

@@ -1,4 +1,6 @@
 import { ChangeEventHandler, useState } from "react";
+
+// Assets
 import "./Toggler.css";
 
 interface IProps {

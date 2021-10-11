@@ -6,6 +6,9 @@ import {
   Tooltip,
   Typography,
 } from "@material-ui/core";
+import { Fragment } from "react";
+
+//Assets
 import Toggler from "./toggler/toggler";
 import { ReactComponent as LocationIcon } from "../assets/icons/Location.svg";
 import { ReactComponent as InfoIcon } from "../assets/icons/Info.svg";
@@ -13,9 +16,7 @@ import { ReactComponent as Plane } from "../assets/icons/Plane.svg";
 import { ReactComponent as Vehicle } from "../assets/icons/Vehicle.svg";
 import { ReactComponent as Baot } from "../assets/icons/Boat.svg";
 import { ReactComponent as Customs } from "../assets/icons/Customs.svg";
-
 import Mode from "./mode/mode";
-import { Fragment } from "react";
 
 const useStyles = makeStyles(() => ({
   formContainer: {

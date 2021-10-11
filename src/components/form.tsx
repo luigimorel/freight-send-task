@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Box,
   Grid,
@@ -7,7 +7,6 @@ import {
   Tooltip,
   Typography,
 } from "@material-ui/core";
-import FreightSendInput from "./buttons";
 import Toggler from "./toggler";
 import { ReactComponent as LocationIcon } from "../assets/icons/Location.svg";
 import { ReactComponent as InfoIcon } from "../assets/icons/Info.svg";
@@ -141,8 +140,6 @@ const useStyles = makeStyles(() => ({
 
 export default function Form() {
   const classes = useStyles();
-
-  const [checked, setChecked] = useState(false);
 
   return (
     <Box className={classes.formContainer}>

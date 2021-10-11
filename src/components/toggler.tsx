@@ -1,4 +1,5 @@
 import { ChangeEventHandler, useState } from "react";
+import "./Toggler.css";
 
 interface IProps {
   className?: string;

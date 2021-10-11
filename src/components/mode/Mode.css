@@ -1,0 +1,40 @@
+.modeCheckbox input[type="checkbox"] {
+  display: none;
+}
+
+.modeCheckbox input[type="checkbox"]:checked + .wrapper {
+  background-color: #0746a6;
+}
+
+.modeCheckbox input[type="checkbox"]:checked + .wrapper {
+  left: 20px;
+  color: white;
+}
+
+.modeCheckbox .wrapper {
+  background-color: #ffffff;
+  border: 1px solid #c2c1c1;
+  border-radius: 4px;
+  height: 85px;
+  width: 211px;
+  margin-right: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+}
+
+.modeText {
+  color: "red";
+  font-size: 1rem;
+  margin-left: 1rem;
+}
+
+.modeIcon {
+  font-size: large;
+  overflow: hidden;
+  color: white;
+  float: right;
+}

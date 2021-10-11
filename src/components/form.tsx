@@ -270,7 +270,7 @@ export default function Form() {
         </Box>
         <Box display="flex" flexDirection="column">
           <Box className={classes.questionContainer}>
-            <Toggler label="aria-label" className="checkbox" />
+            <Toggler className="checkbox" />
             <Typography className={classes.question}>
               Do You Have A Form M?
             </Typography>
@@ -278,7 +278,7 @@ export default function Form() {
         </Box>
         <Box display="flex" flexDirection="column">
           <Box className={classes.questionContainer}>
-            <Toggler label="aria-label" className="checkbox" />
+            <Toggler className="checkbox" />
             <Typography className={classes.question}>
               My Shipment Requires NAFDAC Clearance.
             </Typography>
@@ -286,7 +286,7 @@ export default function Form() {
         </Box>
         <Box display="flex" flexDirection="column">
           <Box className={classes.questionContainer}>
-            <Toggler label="aria-label" className="checkbox" />
+            <Toggler className="checkbox" />
             <Typography className={classes.question}>
               Transport / Delivery
             </Typography>
@@ -302,7 +302,7 @@ export default function Form() {
           </Typography>
 
           <Box display="flex" flexDirection="row">
-            <Toggler label="aria-label" className="checkbox" />
+            <Toggler className="checkbox" />
 
             <div className={classes.exportContainer}>
               <Typography className={classes.forwarding}>

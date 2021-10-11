@@ -298,21 +298,6 @@ export default function Form() {
         </Box>
       </Box>
 
-      {/*Start of container particulars */}
-      <Box className={classes.servicesContainer}>
-        <Typography className={classes.headerText}></Typography>
-
-        <Box
-          display="flex"
-          flexDirection="row"
-          className={classes.serviceContainer}
-        >
-          <Box display="flex" flexDirection="row">
-            <Toggler label="Full Container (FCL)" />
-          </Box>
-        </Box>
-      </Box>
-
       {/* Additional services  */}
       <Box>
         <Box className={classes.servicesContainer}>

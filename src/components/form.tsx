@@ -6,9 +6,16 @@ import {
   Tooltip,
   Typography,
 } from "@material-ui/core";
-import Toggler from "./toggler";
+import Toggler from "./toggler/toggler";
 import { ReactComponent as LocationIcon } from "../assets/icons/Location.svg";
 import { ReactComponent as InfoIcon } from "../assets/icons/Info.svg";
+import { ReactComponent as Plane } from "../assets/icons/Plane.svg";
+import { ReactComponent as Vehicle } from "../assets/icons/Vehicle.svg";
+import { ReactComponent as Baot } from "../assets/icons/Boat.svg";
+import { ReactComponent as Customs } from "../assets/icons/Customs.svg";
+
+import Mode from "./mode/mode";
+import { Fragment } from "react";
 
 const useStyles = makeStyles(() => ({
   formContainer: {
@@ -36,13 +43,7 @@ const useStyles = makeStyles(() => ({
     paddingLeft: "45px",
     marginBottom: "1rem",
   },
-  service: {
-    height: "85px",
-    width: "211px",
-    border: "1px solid #888d93",
-    borderRadius: "4px",
-    margin: "0 15px ",
-  },
+
   serviceContainer: {
     paddingBottom: "1.5rem",
     width: "100%",
@@ -140,6 +141,13 @@ const useStyles = makeStyles(() => ({
 export default function Form() {
   const classes = useStyles();
 
+  const modesOfTransport = [
+    { id: 1, text: "Air Freight", icon: <Plane /> },
+    { id: 2, text: "Ocean Freight", icon: <Baot /> },
+    { id: 3, text: "Inland \n (Truck and Barge)", icon: <Vehicle /> },
+    { id: 4, text: "Customs Clearance)", icon: <Customs /> },
+  ];
+
   return (
     <Box className={classes.formContainer}>
       <Typography className={classes.bookingHeader}>New Booking</Typography>
@@ -159,10 +167,11 @@ export default function Form() {
             flexDirection="row"
             className={classes.serviceContainer}
           >
-            <div className={classes.service}></div>
-            <div className={classes.service}></div>
-            <div className={classes.service}></div>
-            <div className={classes.service}></div>
+            {modesOfTransport.map((item) => (
+              <Fragment key={item.id}>
+                <Mode text={item.text} icon={item.icon} />
+              </Fragment>
+            ))}{" "}
           </Box>
         </Box>
       </Box>
